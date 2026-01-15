@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poniendome Riquisimo - Nutrición y Entrenamiento</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- PANTALLA DE LOGIN/REGISTRO -->
+        <div id="auth-screen" class="screen active">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h1 class="logo">💪 Poniendome Riquisimo</h1>
+                    <p class="tagline">Tu entrenador personal y nutricionista</p>
+                    
+                    <div class="auth-tabs">
+                        <button class="tab-btn active" onclick="switchAuthTab('login')">Iniciar Sesión</button>
+                        <button class="tab-btn" onclick="switchAuthTab('register')">Crear Cuenta</button>
+                    </div>
+                    
+                    <!-- LOGIN -->
+                    <form id="login-form" class="auth-form active">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Contraseña</label>
+                            <input type="password" id="login-password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                    </form>
+                    
+                    <!-- REGISTRO -->
+                    <form id="register-form" class="auth-form">
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" placeholder="tu@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-fecha-nacimiento">Fecha de Nacimiento</label>
+                            <input type="date" id="register-fecha-nacimiento" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Contraseña</label>
+                            <input type="password" id="register-password" placeholder="••••••••" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear Cuenta</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PANTALLA PRINCIPAL -->
+        <div id="main-screen" class="screen">
+            <div class="main-container">
+                <!-- SIDEBAR IZQUIERDO - INFO DEL USUARIO -->
+                <aside class="sidebar">
+                    <div class="user-card">
+                        <div class="user-avatar">👤</div>
+                        <h2 id="user-name">Juan Pérez</h2>
+                        <p id="user-objective" class="objective-badge">Volumen</p>
+                    </div>
+                    
+                    <div class="user-stats">
+                        <div class="stat">
+                            <span class="stat-label">Edad</span>
+                            <span id="user-age" class="stat-value">28</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Altura</span>
+                            <span id="user-height" class="stat-value">-</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Peso</span>
+                            <span id="user-weight" class="stat-value">-</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">IMC</span>
+                            <span id="user-imc" class="stat-value">-</span>
+                        </div>
+                    </div>
+                    
+                    <div class="menu-section">
+                        <h3>Opciones</h3>
+                        <button class="menu-btn active" onclick="switchTab('medidas')">
+                            📸 Cargar Fotos
+                        </button>
+                        <button class="menu-btn" onclick="switchTab('alimentos')">
+                            🍎 Alimentos Disponibles
+                        </button>
+                        <button class="menu-btn" onclick="switchTab('nutricion')">
+                            🥗 Plan de Nutrición
+                        </button>
+                        <button class="menu-btn" onclick="switchTab('ejercicios')">
+                            🏋️ Plan de Ejercicios
+                        </button>
+                        <button class="menu-btn logout-btn" onclick="logout()">
+                            🚪 Cerrar Sesión
+                        </button>
+                    </div>
+                </aside>
+                
+                <!-- CONTENIDO PRINCIPAL -->
+                <main class="content">
+                    <!-- TAB: CARGAR FOTOS -->
+                    <div id="medidas-tab" class="tab-content active">
+                        <h2>Cargar Fotos para Análisis</h2>
+                        <p class="tab-description">Carga dos fotos (frontal y lateral) para que nuestro modelo CNN prediga tus medidas</p>
+                        
+                        <div class="upload-container">
+                            <div class="upload-box">
+                                <label for="foto-frontal">
+                                    <div class="upload-icon">📷</div>
+                                    <p>Foto Frontal</p>
+                                    <small>Haz clic para seleccionar</small>
+                                </label>
+                                <input type="file" id="foto-frontal" accept="image/*" hidden>
+                                <div id="preview-frontal" class="preview"></div>
+                            </div>
+                            
+                            <div class="upload-box">
+                                <label for="foto-lateral">
+                                    <div class="upload-icon">📷</div>
+                                    <p>Foto Lateral</p>
+                                    <small>Haz clic para seleccionar</small>
+                                </label>
+                                <input type="file" id="foto-lateral" accept="image/*" hidden>
+                                <div id="preview-lateral" class="preview"></div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large" onclick="analizarFotos()">
+                            Analizar Fotos
+                        </button>
+                        
+                        <div id="medidas-resultado" class="resultado-box" style="display: none;">
+                            <h3>Resultados del Análisis</h3>
+                            <div class="medidas-grid">
+                                <div class="medida-item">
+                                    <span class="medida-label">Altura</span>
+                                    <span id="resultado-altura" class="medida-valor">-</span>
+                                </div>
+                                <div class="medida-item">
+                                    <span class="medida-label">Peso</span>
+                                    <span id="resultado-peso" class="medida-valor">-</span>
+                                </div>
+                                <div class="medida-item">
+                                    <span class="medida-label">IMC</span>
+                                    <span id="resultado-imc" class="medida-valor">-</span>
+                                </div>
+                                <div class="medida-item">
+                                    <span class="medida-label">% Grasa</span>
+                                    <span id="resultado-grasa" class="medida-valor">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- TAB: ALIMENTOS DISPONIBLES -->
+                    <div id="alimentos-tab" class="tab-content">
+                        <h2>Alimentos Disponibles</h2>
+                        <p class="tab-description">Ingresa los alimentos que tienes disponibles para personalizar tu plan de nutrición</p>
+                        
+                        <div class="alimentos-input">
+                            <input type="text" id="alimento-input" placeholder="Ej: Pollo, Arroz, Brócoli..." autocomplete="off">
+                            <button class="btn btn-secondary" onclick="agregarAlimento()">Agregar</button>
+                        </div>
+                        
+                        <div id="alimentos-lista" class="alimentos-lista">
+                            <!-- Se llena dinámicamente -->
+                        </div>
+                        
+                        <button class="btn btn-primary btn-large" onclick="generarPlanes()" style="margin-top: 20px;">
+                            Generar Planes Personalizados
+                        </button>
+                    </div>
+                    
+                    <!-- TAB: PLAN DE NUTRICIÓN -->
+                    <div id="nutricion-tab" class="tab-content">
+                        <h2>Plan de Nutrición Personalizado</h2>
+                        
+                        <div id="nutricion-contenido" class="nutricion-contenido">
+                            <p class="placeholder">Carga fotos y alimentos para generar tu plan</p>
+                        </div>
+                    </div>
+                    
+                    <!-- TAB: PLAN DE EJERCICIOS -->
+                    <div id="ejercicios-tab" class="tab-content">
+                        <h2>Plan de Ejercicios Semanal</h2>
+                        
+                        <div id="ejercicios-contenido" class="ejercicios-contenido">
+                            <p class="placeholder">Carga fotos y alimentos para generar tu plan</p>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+    
+    <!-- LOADING SPINNER -->
+    <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Procesando...</p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
