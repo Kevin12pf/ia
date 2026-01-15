@@ -1,0 +1,256 @@
+{
+  "fecha": "20260114_184721",
+  "usuario_id": 1,
+  "usuario": {
+    "nombre": "Juan Pérez",
+    "edad": 28,
+    "objetivo": "volumen",
+    "email": "juan@example.com"
+  },
+  "medidas": {
+    "altura": 1.75,
+    "peso": 80.5,
+    "imc": 26.2,
+    "porcentaje_grasa": 22.5,
+    "clasificacion_imc": "Sobrepeso"
+  },
+  "plan_nutricion": {
+    "calorias_diarias": 2850,
+    "macronutrientes": {
+      "proteina_g": 176.1,
+      "carbohidratos_g": 356.25,
+      "grasas_g": 95.0
+    },
+    "comidas": [
+      {
+        "nombre": "Desayuno",
+        "hora": "07:00",
+        "calorias": 712.5,
+        "alimentos": [
+          "Avena",
+          "Huevos"
+        ]
+      },
+      {
+        "nombre": "Almuerzo",
+        "hora": "12:30",
+        "calorias": 997.5,
+        "alimentos": [
+          "Pollo",
+          "Arroz"
+        ]
+      },
+      {
+        "nombre": "Merienda",
+        "hora": "16:00",
+        "calorias": 427.5,
+        "alimentos": [
+          "Plátano"
+        ]
+      },
+      {
+        "nombre": "Cena",
+        "hora": "19:30",
+        "calorias": 712.5,
+        "alimentos": [
+          "Salmón",
+          "Brócoli"
+        ]
+      }
+    ],
+    "alimentos_disponibles": [
+      "Pollo",
+      "Arroz",
+      "Brócoli",
+      "Huevos",
+      "Avena",
+      "Salmón",
+      "Plátano"
+    ]
+  },
+  "plan_ejercicios": {
+    "objetivo": "volumen",
+    "intensidad": "Alta",
+    "dias_semana": [
+      {
+        "dia": "Lunes",
+        "grupo_muscular": "Pecho y Tríceps",
+        "ejercicios": [
+          {
+            "nombre": "Press de Banca",
+            "series": 4,
+            "repeticiones": 8,
+            "descanso": 90,
+            "peso_estimado": "80-100kg"
+          },
+          {
+            "nombre": "Aperturas con Mancuernas",
+            "series": 3,
+            "repeticiones": 10,
+            "descanso": 60,
+            "peso_estimado": "20-25kg"
+          },
+          {
+            "nombre": "Fondos",
+            "series": 3,
+            "repeticiones": 8,
+            "descanso": 60,
+            "peso_estimado": "Peso corporal + 20kg"
+          }
+        ]
+      },
+      {
+        "dia": "Martes",
+        "grupo_muscular": "Espalda y Bíceps",
+        "ejercicios": [
+          {
+            "nombre": "Dominadas",
+            "series": 4,
+            "repeticiones": 8,
+            "descanso": 90,
+            "peso_estimado": "Peso corporal + 10kg"
+          },
+          {
+            "nombre": "Remo con Barra",
+            "series": 4,
+            "repeticiones": 8,
+            "descanso": 90,
+            "peso_estimado": "100-120kg"
+          },
+          {
+            "nombre": "Curl de Bíceps",
+            "series": 3,
+            "repeticiones": 10,
+            "descanso": 60,
+            "peso_estimado": "15-20kg"
+          }
+        ]
+      },
+      {
+        "dia": "Miércoles",
+        "grupo_muscular": "Descanso o Cardio Ligero",
+        "ejercicios": [
+          {
+            "nombre": "Caminata",
+            "series": 1,
+            "repeticiones": 30,
+            "descanso": 0,
+            "intensidad": "Ligera"
+          }
+        ]
+      },
+      {
+        "dia": "Jueves",
+        "grupo_muscular": "Piernas",
+        "ejercicios": [
+          {
+            "nombre": "Sentadillas",
+            "series": 4,
+            "repeticiones": 8,
+            "descanso": 90,
+            "peso_estimado": "120-150kg"
+          },
+          {
+            "nombre": "Prensa de Piernas",
+            "series": 3,
+            "repeticiones": 10,
+            "descanso": 60,
+            "peso_estimado": "300-350kg"
+          },
+          {
+            "nombre": "Extensiones de Cuádriceps",
+            "series": 3,
+            "repeticiones": 12,
+            "descanso": 45,
+            "peso_estimado": "60-80kg"
+          }
+        ]
+      },
+      {
+        "dia": "Viernes",
+        "grupo_muscular": "Hombros",
+        "ejercicios": [
+          {
+            "nombre": "Press Militar",
+            "series": 4,
+            "repeticiones": 8,
+            "descanso": 90,
+            "peso_estimado": "50-70kg"
+          },
+          {
+            "nombre": "Elevaciones Laterales",
+            "series": 3,
+            "repeticiones": 12,
+            "descanso": 60,
+            "peso_estimado": "12-15kg"
+          },
+          {
+            "nombre": "Pájaros",
+            "series": 3,
+            "repeticiones": 12,
+            "descanso": 60,
+            "peso_estimado": "8-12kg"
+          }
+        ]
+      },
+      {
+        "dia": "Sábado",
+        "grupo_muscular": "Brazos y Abdominales",
+        "ejercicios": [
+          {
+            "nombre": "Curl de Bíceps",
+            "series": 3,
+            "repeticiones": 12,
+            "descanso": 45,
+            "peso_estimado": "15-20kg"
+          },
+          {
+            "nombre": "Extensiones de Tríceps",
+            "series": 3,
+            "repeticiones": 12,
+            "descanso": 45,
+            "peso_estimado": "15-20kg"
+          },
+          {
+            "nombre": "Abdominales",
+            "series": 3,
+            "repeticiones": 20,
+            "descanso": 30,
+            "peso_estimado": "Peso corporal"
+          }
+        ]
+      },
+      {
+        "dia": "Domingo",
+        "grupo_muscular": "Descanso",
+        "ejercicios": []
+      }
+    ]
+  },
+  "recomendaciones": {
+    "nutricion": [
+      "Mantén un superávit calórico de 300-500 calorías para ganar masa muscular",
+      "Distribuye la proteína a lo largo del día (30-40g por comida)",
+      "Hidratación: Bebe al menos 3-4 litros de agua diarios",
+      "Suplementos recomendados: Proteína en polvo, Creatina, Multivitamínico"
+    ],
+    "entrenamiento": [
+      "Descansa 48 horas entre entrenamientos del mismo grupo muscular",
+      "Aumenta el peso gradualmente (5-10% cada 2-3 semanas)",
+      "Mantén un registro de tus entrenamientos",
+      "Realiza calentamiento de 5-10 minutos antes de cada sesión"
+    ],
+    "estilo_de_vida": [
+      "Duerme 7-9 horas diarias para una mejor recuperación",
+      "Reduce el estrés y practica meditación",
+      "Evita el alcohol en exceso",
+      "Realiza seguimiento de medidas cada 2-4 semanas"
+    ]
+  },
+  "proximas_revisiones": {
+    "proxima_medicion": "2026-02-14",
+    "proxima_revision_plan": "2026-02-14",
+    "objetivo_peso": 85,
+    "objetivo_porcentaje_grasa": 20
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "poniendome_riquisimo",
+  "version": "1.0.0",
+  "description": "Aplicación web de nutrición y entrenamiento personalizado con IA",
+  "author": "Tu Nombre",
+  "license": "MIT",
+  "scripts": {
+    "backend": "cd backend && python main.py",
+    "frontend": "cd frontend && python -m http.server 8080",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "keywords": [
+    "nutrición",
+    "entrenamiento",
+    "fitness",
+    "IA",
+    "CNN",
+    "FastAPI"
+  ]
+}
